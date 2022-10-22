@@ -57,4 +57,35 @@ public class ConvertorTest {
         String expected = convertor.LengthUnit(6);
         Assert.assertEquals("Вершок", expected);
     }
+
+    @Test
+    void test_OneToM(){
+        String expected = convertor.lengthToMetre(1,10);
+        Assert.assertEquals("10660.0", expected);
+    }
+
+    @Test
+    void test_TwoToM(){
+        String expected = convertor.lengthToMetre(2,2);
+        Assert.assertEquals("4.26", expected);
+    }
+
+    @Test
+    void test_ZeroToM(){
+        String expected = convertor.lengthToMetre(1,0);
+        Assert.assertEquals("0.0", expected);
+    }
+
+    @Test
+    void test_InvalidKmToM(){
+        String expected = convertor.lengthToMetre(1,-10);
+        Assert.assertEquals("Значение должно быть неотрицательным", expected);
+    }
+
+    @Test
+    void test_InvalidUnitToM(){
+        String expected = convertor.lengthToMetre(48,25);
+        Assert.assertEquals("Отсутствует в списке", expected);
+    }
+
 }
