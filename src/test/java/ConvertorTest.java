@@ -88,4 +88,62 @@ public class ConvertorTest {
         Assert.assertEquals("Отсутствует в списке", expected);
     }
 
+    @Test
+    void test_unitsOfWeight1(){
+        String expected = convertor.WeightUnits(1);
+        Assert.assertEquals("Пуд", expected);
+    }
+
+    @Test
+    void test_unitsOfWeight2(){
+        String expected = convertor.WeightUnits(2);
+        Assert.assertEquals("Фунт", expected);
+    }
+
+    @Test
+    void test_unitsOfWeight3(){
+        String expected = convertor.WeightUnits(3);
+        Assert.assertEquals("Лот", expected);
+    }
+
+    @Test
+    void test_unitsOfWeight4(){
+        String expected = convertor.WeightUnits(4);
+        Assert.assertEquals("Золотник", expected);
+    }
+
+    @Test
+    void test_unitsOfWeight5(){
+        String expected = convertor.WeightUnits(5);
+        Assert.assertEquals("Доля", expected);
+    }
+
+    @Test
+    void test_OneToKg(){
+        String expected = convertor.weightToKg(1,1.1);
+        Assert.assertEquals("18.480000000000004", expected);
+    }
+    @Test
+    void test_TwoToKg(){
+        String expected = convertor.weightToKg(5,10000);
+        Assert.assertEquals("0.0044", expected);
+    }
+
+    @Test
+    void test_ZeroToKg(){
+        String expected = convertor.weightToKg(1,0);
+        Assert.assertEquals("0.0", expected);
+    }
+
+    @Test
+    void test_InvalidTToKg(){
+        String expected = convertor.weightToKg(1,-10);
+        Assert.assertEquals("Значение должно быть неотрицательным", expected);
+    }
+
+    @Test
+    void test_InvalidUnitToKg(){
+        String expected = convertor.weightToKg(48,37);
+        Assert.assertEquals("Отсутствует в списке", expected);
+    }
 }
